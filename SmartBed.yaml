@@ -1,0 +1,145 @@
+esphome:
+  name: esphome-web-861ea0
+  friendly_name: LitMagique
+  min_version: 2025.5.0
+  name_add_mac_suffix: false
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Allow Over-The-Air updates
+ota:
+- platform: esphome
+
+wifi:
+  ssid: YOUR_SSID_HERE
+  password: YOUR_SSID_PASSOWRD_HERE
+
+output:
+  - platform: gpio
+    pin: GPIO23
+    id: led
+  - platform: gpio
+    pin: GPIO32
+    id: relay_pin_1
+  - platform: gpio
+    pin: GPIO33
+    id: relay_pin_2
+  - platform: gpio
+    pin: GPIO25
+    id: relay_pin_3
+  - platform: gpio
+    pin: GPIO26
+    id: relay_pin_4
+
+# Define the switches based on the relay pins
+switch:
+  - platform: output
+    id: relay_1
+    name: "Head down"
+    output: relay_pin_1
+  - platform: output
+    id: relay_2
+    name: "Feet down"
+    output: relay_pin_2
+  - platform: output
+    id: relay_3
+    name: "Head up"
+    output: relay_pin_3
+  - platform: output
+    id: relay_4
+    name: "Feet up"
+    output: relay_pin_4
+
+interval:
+  - interval: 1000ms
+    then:
+      - output.turn_on: led
+      - delay: 500ms
+      - output.turn_off: led
+
+# Boutons physiques (NON exposés dans Home Assistant)
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO2
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Bouton Relais 1"
+    id: button_relay_1
+    internal: true  # Empêche l'exposition dans Home Assistant
+    on_press:
+      then:
+        - switch.turn_on: relay_1
+    on_release:
+      then:
+        - switch.turn_off: relay_1
+    filters:
+      - delayed_on_off: 50ms  # Anti-rebond pour press et release
+
+  - platform: gpio
+    pin:
+      number: GPIO4
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Bouton Relais 4"
+    id: button_relay_4
+    internal: true
+    on_press:
+      then:
+        - switch.turn_on: relay_4
+    on_release:
+      then:
+        - switch.turn_off: relay_4
+    filters:
+      - delayed_on_off: 50ms
+
+  - platform: gpio
+    pin:
+      number: GPIO17
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Bouton Relais 3"
+    id: button_relay_3
+    internal: true
+    on_press:
+      then:
+        - switch.turn_on: relay_3
+    on_release:
+      then:
+        - switch.turn_off: relay_3
+    filters:
+      - delayed_on_off: 50ms
+
+  - platform: gpio
+    pin:
+      number: GPIO18
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Bouton Relais 2"
+    id: button_relay_2
+    internal: true
+    on_press:
+      then:
+        - switch.turn_on: relay_2
+    on_release:
+      then:
+        - switch.turn_off: relay_2
+    filters:
+      - delayed_on_off: 50ms
