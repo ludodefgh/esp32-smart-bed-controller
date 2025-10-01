@@ -9,6 +9,7 @@ Transform your adjustable bed into a smart home device using an ESP32 microcontr
 - [Wiring Guide](#wiring-guide)
 - [ESPHome Configuration](#esphome-configuration)
 - [Home Assistant Integration](#home-assistant-integration)
+- [3D Printed Case](#3d-printed-case)
 - [Installation Steps](#installation-steps)
 - [Troubleshooting](#troubleshooting)
 - [Safety Considerations](#safety-considerations)
@@ -145,6 +146,61 @@ Once the ESP32 is running ESPHome, it will automatically appear in Home Assistan
 - `switch.esphome_web_861ea0_feet_up`
 
 These can be used in automations, scripts, and dashboards.
+
+## 3D Printed Case
+
+A custom 3D printable case is provided to protect the ESP32 board and provide professional mounting options.
+
+### Case Features
+
+- **Snap-fit lid**: Tool-free access for maintenance
+- **Cable management**: Two cable entry points with integrated strain relief
+- **LED visibility**: Windows for all relay and status LEDs
+- **Mounting options**: Side ears for 3M adhesive or screw mounting
+- **Ventilation**: Slots for heat dissipation
+- **Internal wire management**: Channels to secure Dupont connections
+
+### Files Included
+
+- `box.stl` - Main enclosure box for 3D printing
+- `cover.stl` - Top cover/lid for 3D printing
+
+### Printing Instructions
+
+**Print Settings:**
+- Layer height: 0.2mm
+- Infill: 20%
+- Support: None required
+- Print orientation: Bottom face down for both parts
+
+**Materials:**
+- PLA: Recommended for indoor use
+- PETG: Better temperature resistance
+- ABS: Maximum durability
+
+**Post-Processing:**
+1. Remove any stringing or supports
+2. Test fit the snap mechanism before assembly
+3. Ensure cable holes are clear of debris
+
+### Assembly
+
+1. **Install board**: Mount ESP32 board using M3 screws into integrated posts
+2. **Route cables**: Thread cables through strain relief channels and out cable holes
+3. **Secure connections**: Use internal channels to manage and secure wire connections
+4. **Close case**: Snap lid onto base using integrated tabs
+
+### Mounting Options
+
+**Under-bed mounting (recommended):**
+- Use 3M VHB double-sided tape on mounting ears
+- Position for easy cable routing to bed connection
+- Ensure adequate clearance for lid removal
+
+**Wall mounting:**
+- Drill holes through mounting ears
+- Use appropriate anchors for wall type
+- Consider cable management to connection points
 
 ## Installation Steps
 
