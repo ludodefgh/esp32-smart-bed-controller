@@ -156,7 +156,6 @@ A custom 3D printable case is provided to protect the ESP32 board and provide pr
 - **Snap-fit lid**: Tool-free access for maintenance
 - **Cable management**: Two cable entry points with integrated strain relief
 - **LED visibility**: Windows for all relay and status LEDs
-- **Mounting options**: Side ears for 3M adhesive or screw mounting
 - **Ventilation**: Slots for heat dissipation
 - **Internal wire management**: Channels to secure Dupont connections
 
@@ -193,12 +192,10 @@ A custom 3D printable case is provided to protect the ESP32 board and provide pr
 ### Mounting Options
 
 **Under-bed mounting (recommended):**
-- Use 3M VHB double-sided tape on mounting ears
 - Position for easy cable routing to bed connection
 - Ensure adequate clearance for lid removal
 
 **Wall mounting:**
-- Drill holes through mounting ears
 - Use appropriate anchors for wall type
 - Consider cable management to connection points
 
